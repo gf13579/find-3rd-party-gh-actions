@@ -16,12 +16,11 @@ def search_github(org):
         print("Error: GITHUB_TOKEN environment variable is not set.")
         return
 
-    all_matches = []
     all_matches_from_all_content = []
 
     query = "uses: language:YAML path:.github/" + f" user:{org}"
 
-    regex_filter = rf"uses:\s*(?!\s*({org}|github|actions|\./\.github)/)"
+    regex_filter = rf"\suses:\s*(?!\s*({org}|github|actions|\./\.github)/)"
 
     headers = {
         "Authorization": f"token {token}",
